@@ -2,6 +2,9 @@ class User < ApplicationRecord
   #~ before_create :encrypt_password
 
   # validation
+  validates :username, uniqueness: true
+  validates :email, uniqueness: true
+
   validates_length_of     :email, :within => 3..150
   validates_uniqueness_of :email, :case_sensitive => false
   validates_presence_of   :username
