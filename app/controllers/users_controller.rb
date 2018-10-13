@@ -88,7 +88,7 @@ class UsersController < ApplicationController
       redirect_to :controller => "users" , :action => "show" , :id => session[:user_id] and return
     end
 
-    if @user.encrypted_password == tested_pass
+    if @user && @user.encrypted_password == tested_pass
       session[:user_id] = @user.id
       session[:username] = @user.username
       flash[:notice] = "You are welcome back #{@user.username}!!"

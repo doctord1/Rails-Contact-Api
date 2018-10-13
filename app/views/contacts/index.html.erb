@@ -1,4 +1,6 @@
-<p id="notice"><%= notice %></p>
+<% if notice %>
+  <div class="alert alert-info"><%= notice %></div>
+<% end %>
 
 <h3>My Contacts <em><small><%= link_to 'show only starred contacts', show_starred_contacts_path(session[:user_id]) %></small></em></h3>
 
