@@ -1,0 +1,20 @@
+Rails.application.routes.draw do
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  #~ namespace :api do
+    #contacts
+    get '/api/contact/new', to: 'contacts#new', as: :new_contact_form
+    post '/api/contact', to: 'contacts#create', as: :create_new_contact
+    get '/api/contact', to: 'contacts#index', as: :show_all_user_contacts
+    get '/api/contact/:id', to: 'contacts#show', as: :show_single_contact
+    patch '/api/contact/:id', to: 'contacts#update', as: :update_single_contact
+    delete '/api/contact/:id', to: 'contacts#destroy', as: :delete_single_contact
+    patch '/api/contact/:id/star', to: 'contacts#star', as: :star_single_contact
+
+
+    #users
+    post '/user/signup', to: 'users#create', as: :signup
+    post '/user/signin', to: 'users#signin', as: :login
+
+  #~ end
+end

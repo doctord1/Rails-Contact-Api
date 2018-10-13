@@ -1,0 +1,28 @@
+<h1>New Contact</h1>
+
+<%= form_tag({controller: "contacts", action: "create"}, method: "post") do %>
+  <% if @contact.errors.any? %>
+    <div id="alert alert-danger">
+      <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
+
+      <ul>
+      <% @contact.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p><%= label_tag(:name, "Contact name:") %><br>
+  <%= text_field_tag(:name, "#{@contact.name}", class: "form-control")  %></p>
+  <%= hidden_field_tag(:user_id, "#{session[:user_id]}") %>
+  <p><%= label_tag(:address, "Address:") %><br>
+  <%= text_area_tag(:address, "#{@contact.address}", class: "form-control") %></p>
+  <p><%= label_tag(:starred, "Starred?") %>
+  <%= check_box_tag(:starred) %></p>
+
+  <div class="actions">
+    <%= submit_tag "Save Contact", class: "btn btn-primary my-2" %>
+    <%= submit_tag "Back", class: "btn btn-default my-2" %>
+  </div>
+<% end %>

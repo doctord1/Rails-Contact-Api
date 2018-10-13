@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+<h1><%= @contact.name %></h1>
+<p><%= @contact.address %></p>
+<%=
+  if @contact.starred do
+    print starred
+    end
+  end
+%>
+<%= link_to 'Edit', edit_contact_form_path(@contact) %> |
+<%= link_to 'Back', show_all_user_contacts_path %>

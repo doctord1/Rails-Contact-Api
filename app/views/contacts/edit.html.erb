@@ -1,0 +1,36 @@
+<h1>Editing Contact</h1>
+
+<%= form_tag({controller: "contacts", action: "update"}, method: "patch") do %>
+  <% if @contact.errors.any? %>
+    <div id="alert alert-danger">
+      <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
+
+      <ul>
+      <% @contact.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p><%= label_tag(:name, "Contact name:") %><br>
+  <%= text_field_tag(:name, "#{@contact.name}", class: "form-control")  %></p>
+  <%= hidden_field_tag(:user_id, "#{session[:user_id]}") %>
+  <p><%= label_tag(:address, "Address:") %><br>
+  <%= text_area_tag(:address, "#{@contact.address}", class: "form-control") %></p>
+  <p><%= label_tag(:starred, "Starred?") %>
+  <% if @contact.starred?  %>
+    <%= check_box_tag(:starred, '1', true) %>
+  <% else %>
+    <%= check_box_tag(:starred) %>
+  <% end %>
+  </p>
+
+  <div class="actions">
+    <%= submit_tag "Save Contact", class: "btn btn-primary my-2" %>
+  </div>
+<% end %>
+
+
+<%= link_to 'Show', show_single_contact_path %> |
+<%= link_to 'Back', show_all_user_contacts_path %>

@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h3>My Contacts <em><small><%= link_to 'show only starred contacts', show_starred_contacts_path(session[:user_id]) %></small></em></h3>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th ></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contacts.each do |contact| %>
+      <tr>
+        <td><%= link_to "#{contact.name}", show_single_contact_path(contact) %>
+          <% if contact.starred %>
+            <span class="text-warning">
+            <i class="fas fa-star"></i>
+            <em><small>starred</small></em>
+            </span>
+          <% end %>
+        </td>
+        <td><%= link_to (raw("<span class=''><i class='far fa-trash-alt'></i> Edit </span>")), edit_contact_form_path(contact) %></td>
+        <td><%= link_to (raw("<span class='text-danger'><i class='far fa-trash-alt'></i> Delete</span>")), delete_single_contact_path(contact), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Contact', new_contact_form_path %>
