@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<% if session[:user_id] %>
+<h1>Users</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= link_to "#{user.username}", show_single_user_path(user) %></td>
+        <td><%= link_to 'Edit', update_single_user_path(user) %></td>
+        <td><%= link_to 'Destroy', delete_single_user_path(user), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<% end %>
+
+<% if session[:user_id] == nil %>
+  <%= link_to 'New User', signup_form_path %>
+  <%= link_to ' | Login', login_path %>
+<% else %>
+
+  <%= link_to ' | Logout', logout_path %>
+<% end %>

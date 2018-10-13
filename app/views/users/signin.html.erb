@@ -1,0 +1,15 @@
+<div class= "Signin_Form">
+  <h1 class="bg-light p-3">Log in</h1>
+  <%= notice %>
+
+  <fieldset>
+    <legend>Enter username/password</legend>
+    <% @page_title = "UserAuth | Login" -%>
+
+      <%= form_tag(:action => 'authenticate') do %>
+        <p>Username:</br> <%= text_field_tag(:username, {class: "form-control"}) %></p>
+        <p>Password:</br> <%= password_field_tag :password %></p>
+        <%= submit_tag("Log In") %>
+      <% end %>
+  </fieldset>
+</div>

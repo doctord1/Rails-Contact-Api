@@ -1,0 +1,10 @@
+<% if session[:user_id] %>
+  <p><b>Username: </b><%= @user.username %></p>
+  <p><b>Email: </b><%= @user.email %></p>
+
+  <br>
+  <p><%= link_to 'Logout', logout_path %>
+  </p>
+
+
+<% end %>
