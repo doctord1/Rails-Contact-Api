@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  #~ skip_before_action :enforce_login, :only=>[:signin,:new]
 
   # GET /users
   # GET /users.json

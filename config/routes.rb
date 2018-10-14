@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     get '/api/user/signin', to: 'users#signin', as: :login
     get '/api/user/logout', to: 'users#logout', as: :logout
     get '/api/users', to: 'users#index', as: :all_users
-    get '/api/users/me', to: 'users#me', as: :my_profile
+    get '/api/user/me', to: 'users#me', as: :my_profile
     get '/api/user/:id', to: 'users#show', as: :show_single_user
     patch '/api/user/:id', to: 'users#update', as: :update_single_user
     delete '/api/user/:id', to: 'users#destroy', as: :delete_single_user
