@@ -11,11 +11,11 @@
     </div>
   <% end %>
 
-  <p>Username:</br> <%= text_field_tag(:username) %></p>
-  <p>Password:</br> <%= password_field_tag(:password) %></p>
-  <p>Confirm password:</br> <%= password_field_tag(:confirm_password) %></p>
-  <p>Email:</br> <%= email_field_tag(:email) %></p>
+  <p>Username:</br> <%= text_field_tag(:username,"", class: "form-control") %></p>
+  <p>Password:</br> <%= password_field_tag(:password,"", class: "form-control") %></p>
+  <p>Confirm password:</br> <%= password_field_tag(:confirm_password,"", class: "form-control") %></p>
+  <p>Email:</br> <%= email_field_tag(:email,"", class: "form-control") %></p>
   <div class="actions">
-    <%= submit_tag("Sign up") %>
+    <%= submit_tag("Sign up",class: "btn btn-primary my-2") %>
   </div>
 <% end %>
