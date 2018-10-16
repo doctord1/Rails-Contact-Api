@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   #~ get '/', to: 'contacts#index', as: :home
-  root to: 'users#authenticate'
+  root to: 'users#new'
   scope 'api' do
 
 
