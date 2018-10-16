@@ -5,24 +5,36 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: sqlite3
+  adapter: postgresql
+  host: localhost
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
+  username: api1
+  password: api1
 
 development:
   <<: *default
-  database: db/development.sqlite3
+  host: localhost
+  database: db/api_development
+  username: api1
+  password: api1
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test: &test
   <<: *default
-  database: db/test.sqlite3
+  host: localhost
+  database: db/api_test
+  username: api1
+  password: api1
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  host: localhost
+  database: db/api_production
+  username: api1
+  password: api1
 
 cucumber:
   <<: *test

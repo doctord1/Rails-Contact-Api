@@ -40,7 +40,7 @@ class UsersController < ApplicationController
       @user.encrypted_password = Digest::SHA1.hexdigest("--#{@user.salt}--#{params[:password]}--" )
       respond_to do |format|
         if @user.save
-          format.html { redirect_to '/api/users', notice: 'User was successfully created.' }
+          format.html { redirect_to '/api/user/signin', notice: 'User was successfully created.' }
           format.json { render :show, status: :created, location: @user }
         else
           format.html { render :new }
