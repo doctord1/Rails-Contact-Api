@@ -2,7 +2,7 @@
 
 <h3>My Starred Contacts</h3>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th ></th>
@@ -14,11 +14,14 @@
       <tr>
         <td><%= link_to "#{contact.name}", show_single_contact_path(contact) %>
           <% if contact.starred %>
+            <span class="text-warning">
+            <i class="fas fa-star"></i>
             <em><small>starred</small></em>
+            </span>
           <% end %>
         </td>
-        <td><%= link_to 'Edit', edit_contact_form_path(contact) %></td>
-        <td><%= link_to 'Delete', delete_single_contact_path(contact), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to (raw("<span class=''><i class='far fa-trash-alt'></i> Edit </span>")), edit_contact_form_path(contact) %></td>
+        <td><%= link_to (raw("<span class='text-danger'><i class='far fa-trash-alt'></i> Delete</span>")), delete_single_contact_path(contact), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +29,4 @@
 
 <br>
 
-<%= link_to 'New Contact', new_contact_form_path %>
+<%= link_to (raw("<span class='btn btn-success'>New Contact </span>")), new_contact_form_path %>

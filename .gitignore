@@ -32,3 +32,6 @@
 
 #ignore ide files
 .goutputstream*
+
+#ignore branch
+/Rails-Contact-Api

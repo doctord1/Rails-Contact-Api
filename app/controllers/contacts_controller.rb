@@ -71,7 +71,7 @@ class ContactsController < ApplicationController
 
   def starred
     if session[:user_id]
-      @contacts = Contact.where(:user_id => session[:user_id])
+      @contacts = Contact.where(:user_id => session[:user_id]).where(:starred => true)
     end
   end
 
