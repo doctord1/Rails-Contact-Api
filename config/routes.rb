@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  #~ namespace :api do
     #contacts
     get '/api/contact/new', to: 'contacts#new', as: :new_contact_form
     post '/api/contact', to: 'contacts#create', as: :create_new_contact
